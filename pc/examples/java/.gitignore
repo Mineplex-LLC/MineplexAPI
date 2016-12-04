@@ -3,5 +3,5 @@
 *.iml
 
 # Maven
-.idea/
+target/
 dependency-reduced-pom.xml
