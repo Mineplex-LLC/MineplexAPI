@@ -10,6 +10,6 @@ api.getPlayerFriends(player, ('success','friends') => { //Asks the API for the l
 	}
 	else { //Runs the rest of the code
 		var friendList = friends.name //Gets the array of friends
-		console.log(`${player} has ${friendList.length} Friends and they are [${friendList.join()}]`);
+		console.log(`${player} has ${friendList.length} Friends and they are [${friendList.join()}]`); //The message of all the player's friends.
 	}
 });
