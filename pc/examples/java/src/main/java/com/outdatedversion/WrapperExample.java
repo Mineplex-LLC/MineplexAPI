@@ -14,11 +14,9 @@ public class WrapperExample
 
     private WrapperExample()
     {
-        // well we'll need our base here first..
-        // create a new builder then we'll do some configuration. most
+        // Create a new builder then we'll do some configuration. Most
         // of the options provided in there you'll never use EXCEPT
-        // `withKey` - that one is pretty important. gonna yell at you
-        // if you don't use that!
+        // `withKey` - that one is pretty important.
         final MineplexAPI _api = MineplexAPI.builder().withKey("your-key").provide();
 
         // let's grab some data.. we'll use me as an example.
@@ -26,40 +24,37 @@ public class WrapperExample
         {
             if (issue.isPresent())
             {
-                // shoot. somethin went wrong.
-                // may wanna deal with it.
+                // shoot, so something went wrong
+                // with this request to the API.
+                // Here you'd handle it however you
+                // deal with errors within your app
                 return;
             }
 
-            // maybe we can look at my level
+            // look over at my level
             System.out.println("Level: " + profile.level.value);
 
             // my current rank..
             System.out.println("Rank: " + profile.rank);
 
-            // let's go through my friends.. (ha I don't have any)
+            // let's go through my friends..
             profile.friends.forEach(info -> System.out.println("A friend: " + info.name));
 
-            // ok maybe I wasn't online in that last example..
             // let's look at when it is that I was last on
             System.out.println("Last on: " + profile.lastLogin.toString());
         });
 
         // just a note: you may also use a UUID!
-        _api.fetchProfile(UUID.fromString("03c337cd-7be0-4694-b9b0-e2fd03f57258"), (profile, issue) ->
-        {
-            // do stuff
-        });
+        _api.fetchProfile(UUID.fromString("03c337cd-7be0-4694-b9b0-e2fd03f57258"), (profile, issue) -> { ... });
 
         // maybe we wanna mess with some region data..
         // let's grab the current player count from us.mineplex.com
         _api.fetchRegionStatus(Region.US, (status, issue) ->
         {
-            if (issue.isPresent())
-            {
-                // uh oh a boo boo happened
+            // if there's an issue, let's print
+            // the stack trace then freeze
+            if (issue.printTrace())
                 return;
-            }
 
             System.out.println("Currently " + status.playerCount + " players are on the US network.");
         });
@@ -74,26 +69,21 @@ public class WrapperExample
             System.out.println("EU Player Count: " + status.eu.playerCount);
         });
 
-        // data from one server..
-        // in this case the staff server on the US network
+        // Information on one server
+        // in this case: the staff server on the US network
         _api.fetchServerStatus(Region.US, "Staff-1", (info, issue) ->
         {
             if (issue.isPresent())
-            {
-                // you know the drill..
                 return;
-            }
 
             System.out.println("Staff-1 player count: " + info.playerCount);
         });
 
+        // some details on the gem fountain
         _api.fetchFountainInfo((fountain, issue) ->
         {
             if (issue.isPresent())
-            {
-                // ¯\_(ツ)_/¯
                 return;
-            }
 
             if (fountain.hasActiveBrawl)
                 System.out.println("HEY GUYS. The brawl is active! (We made it to " + fountain.percentFilled + "%!)");
