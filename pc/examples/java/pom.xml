@@ -22,9 +22,9 @@
 
         <!-- API Wrapper -->
         <dependency>
-            <groupId>com.github.outdatedversion</groupId>
+            <groupId>com.outdatedversion</groupId>
             <artifactId>mineplex-api-java</artifactId>
-            <version>1.0</version>
+            <version>aa15f7c</version>
         </dependency>
 
     </dependencies>
@@ -58,6 +58,10 @@
                         </goals>
                     </execution>
                 </executions>
+
+                <configuration>
+                    <generateUniqueDependencyReducedPom>false</generateUniqueDependencyReducedPom>
+                </configuration>
             </plugin>
 
             <!-- Fill in our attributes -->
