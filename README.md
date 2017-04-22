@@ -1,4 +1,8 @@
 # Mineplex Public API
+
+> This project has since been put on hold. It may relaunch at some point, but we're not too sure. Thanks for the time we had! :)
+
+
 Welcome to the Mineplex Public API! We provide [PC](#pc-api) and [PE](#pe-api) oriented endpoints for gathering information on players, network status, and more.
 
 ### General
