@@ -16,7 +16,7 @@ public class WrapperExample
     {
         // Create a new builder then we'll do some configuration. Most
         // of the options provided in there you'll never use EXCEPT
-        // `withKey` - that one is pretty important.
+        // 'withKey' - that one is pretty important.
         final MineplexAPI _api = MineplexAPI.builder().withKey("your-key").provide();
 
         // let's grab some data.. we'll use me as an example.
