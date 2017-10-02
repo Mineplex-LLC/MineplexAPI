@@ -1,6 +1,10 @@
 # Mineplex Public API
 Welcome to the Mineplex Public API! We provide [PC](#pc-api) and [PE](#pe-api) oriented endpoints for gathering information on players, network status, and more.
 
+## IMPORTANT INFO
+The Mineplex API has been indefinitely shut down, and this documention does not contribute to our future API plans. This is here purly for archival reasons. Future API plans will not reflect on this documentation.  
+
+
 ### General
 
 All API endpoints utilize the HTTP `GET` method. Authorization & rate-limiting are handled via an [API key](#authorization).
